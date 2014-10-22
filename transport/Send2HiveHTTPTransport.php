@@ -35,8 +35,10 @@ class Send2HiveHTTPTransport extends AbstractSend2HiveTransport
 
         $url = "http://{$this->url}/api/?apikey={$apiKey}&mode=async";
 
-        curl_setopt($ch, CURLOPT_POST, 1);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, array('data' => json_encode($data)));
+        if (!empty($data)) {
+            curl_setopt($ch, CURLOPT_POST, 1);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, array('data' => json_encode($data)));
+        }
 
         curl_setopt($ch, CURLOPT_URL, $url);
 
