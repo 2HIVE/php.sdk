@@ -5,16 +5,16 @@ include_once(__DIR__ . '/Send2HiveTransportInterface.php');
 
 abstract class AbstractSend2HiveTransport implements Send2HiveTransportInterface
 {
-    protected static $_errno;
-    protected static $_errstr;
+    protected $_errno;
+    protected $_errstr;
 
-    public static function getError()
+    public function getError()
     {
-        return self::$errno;
+        return $this->$errno;
     }
 
-    public static function getErrorMessage()
+    public function getErrorMessage()
     {
-        return self::$_errstr;
+        return $this->$_errstr;
     }
 }
