@@ -8,7 +8,7 @@ class Send2HiveHTTPTransport extends AbstractSend2HiveTransport
     private $url = '2hive.org';
 
 
-    public function send($apiKey, array $data)
+    public function send($apiKey, array $data = array())
     {
         return $this->makeRequest($apiKey, $data);
     }
